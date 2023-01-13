@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EEF9BF;
+    position: relative;
+    
+    max-width: 872px;
+    margin: 125px;
+
+
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 56px;
+    color: #75B79E;
+    font-family: 'Roboto', sans-serif;
+}
+.baralho{
+     display: flex;
+    flex-wrap: wrap;
+}
+.carta {
+    width: 117px;
+    height: 146px;
+    background-color: #A7E9AF;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+    margin: 15px;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+
+}
