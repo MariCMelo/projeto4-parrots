@@ -5,7 +5,6 @@
 body {
     background-color: #EEF9BF;
     position: relative;
-    
     max-width: 872px;
     margin: 125px;
 
@@ -18,25 +17,54 @@ h1 {
     color: #75B79E;
     font-family: 'Roboto', sans-serif;
 }
-.baralho{
-     display: flex;
-    flex-wrap: wrap;
-}
-.carta {
-    width: 117px;
-    height: 146px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
+
+.baralho {
     display: flex;
-    justify-items: center;
-    align-items: center;
-    position: relative;
-    margin: 15px;
+    flex-wrap: wrap;
+    perspective: 1000px;
 }
 
-img{
-    width: 100px;
-    height: 100px;
+.carta {
+    width: 200px;
+        height: 250px;
+        position: relative;
+        margin: 15px;
+}
+
+.frente {
+    width: 100%;
+    height: 100%;
+    background-color: #A7E9AF;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
+}
+
+.verso  {
+    transform: rotateY(180deg);
+    width: 100%;
+    height: 100%;
+    
+}
+
+.carta:hover .verso{
+    transform: rotateY(0deg);
+  }
+
+  .carta:hover .faceFrente {
+    transform: rotateY(-180deg);
+  }
+
+
+
+
+
+
 
 }
