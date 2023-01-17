@@ -43,7 +43,7 @@ for (let i = 0; i < numeroCartas / 2; i++) {
     }
     
 function selecionarCarta(cartaSelecionada){
-    cartaSelecionada.classList.add("faceFrente")
+  
 }
 
 escolhas.sort(comparador);
@@ -51,33 +51,15 @@ console.log(escolhas);
 for(let i = 0; i<escolhas.length; i++){
     console.log(i);
     console.log(imagensFrente[i]);
-cartas.innerHTML = cartas.innerHTML + `<div onclick="selecionarCarta(this)" class="carta">
-    <img class="frente faceFrente" src=${imagensFrente[escolhas[i]]}>
-    <img class="verso frente" src="imagens/back.png">
-    </div>`;
+
+    
+cartas.innerHTML = cartas.innerHTML + `<div class="carta" onclick="virar-carta(this)"> 
+
+    <div><img class=" frente face-frente" src="imagens/back.png"></div>
+    
+    <div><img class="frente face-verso" src=${imagensFrente[escolhas[i]]}></div>
+</div>
+    `;
 }
 
 
- 
-
-//     imagensFrente.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
-
-//     // Esta função pode ficar separada do código acima, onde você preferir
-    
-
-
-
-
-
-
-
-
-//     let cartas = document.querySelector(".baralho");
-
-//     cartas.forEach(carta => carta.addEventListener('click', virarCarta));
-
-//     //O jogo
-
-//     jogo = document.querySelector(".cartas")
-
-//   

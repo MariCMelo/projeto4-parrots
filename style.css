@@ -6,7 +6,12 @@ body {
     background-color: #EEF9BF;
     position: relative;
     max-width: 872px;
-    margin: 125px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+
 
 
 }
@@ -16,20 +21,24 @@ h1 {
     font-size: 56px;
     color: #75B79E;
     font-family: 'Roboto', sans-serif;
+    justify-content: center;
 }
 
 .baralho {
     display: flex;
     flex-wrap: wrap;
-    perspective: 1000px;
+    align-items: center;
+    margin-top: 0;
+    justify-content: center;
 }
 
 .carta {
-    width: 200px;
-        height: 250px;
-        position: relative;
-        margin: 15px;
-        
+    width: 115px;
+    height: 150px;
+    position: relative;
+    margin-left: 35px;
+    margin-top: 35px;
+
 }
 
 .frente {
@@ -37,7 +46,7 @@ h1 {
     height: 100%;
     background-color: #A7E9AF;
     border-radius: 10px;
-    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,17 +56,46 @@ h1 {
     transform-style: preserve-3d;
 }
 
-.verso  {
-    transform: rotateY(180deg);
-    width: 100%;
-    height: 100%;
-    
+.frente img {
+    width: 100px;
+    height: 100px;
 }
 
-.carta:hover .verso{
-    transform: rotateY(0deg);
-  }
 
-  .carta.faceFrente {
+.face-verso {
+    transform: rotateY(180deg);
+}
+
+.virar-carta .face-verso {
+    transform: rotateY(0deg);
+}
+
+
+.virar-carta .face-frente {
     transform: rotateY(-180deg);
-  }
+}
+
+@media (max-width: 1150px) {
+    .baralho {
+        width: auto;
+
+    }
+
+    .face-verso {
+        flex-wrap: wrap;
+        margin: 8px;
+       
+
+
+    }
+
+
+
+    @media (max-width: 700px) {
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 27px;
+        }
+    }
+}
