@@ -1,98 +1,83 @@
-/* // cartas
-const cartasArray = [
-    {
-        nome: 'bobRoss',
-        img: 'imagens/bobrossparrot.gif'
-    },
-    {
-        nome: 'bobRoss',
-        img: 'imagens/bobrossparrot.gif'
-    },
-    {
-        nome: 'explodyParrot',
-        img: 'imagens/explodyparrot.gif'
-    },
-    {
-        nome: 'explodyParrot',
-        img: 'imagens/explodyparrot.gif'
-    },
-    {
-        nome: 'fiestaParrot',
-        img: 'imagens/piestaparrot.gif'
-    },
-    {
-        nome: 'fiestaParrot',
-        img: 'imagens/piestaparrot.gif'
-    },
-    {
-        nome: 'metalParrot',
-        img: 'imagens/metalparrot.gif'
-    },
-    {
-        nome: 'metalParrot',
-        img: 'imagens/metalparrot.gif'
-    },
-    {
-        nome: 'revertitParrot',
-        img: 'imagens/revertitparrot.gif'
-    },
-    {
-        nome: 'revertitParrot',
-        img: 'imagens/revertitparrot.gif'
-    },
-    {
-        nome: 'tripletsParrot',
-        img: 'imagens/tripletsparrot.gif'
-    },
-    {
-        nome: 'tripletsParrot',
-        img: 'imagens/tripletsparrot.gif'
-    },
-    {
-        nome: 'unicornParrot',
-        img: 'imagens/unicornparrot.gif'
-    },
-    {
-        nome: 'unicornParrot',
-        img: 'imagens/unicornparrot.gif'
-    },
-] */
+//dar as cartas perguntar no prompt
+console.log("entrou aqui");
+let numeroCartas = prompt("Com quantas cartas quer Jogar? (Valor par, de 4 a 14)");
+numeroCartas = parseInt(numeroCartas);
 
-const baralho = document.querySelector('.baralho');{
-
-    function jogo();{
-        for (let i = 0; i < cartasArray.length; i++);
+let podeJogar = false;
+while(!podeJogar) {
+    if ((numeroCartas % 2 === 0) && (numeroCartas >= 4 && numeroCartas <= 14) && (numeroCartas !== null)) {
+        podeJogar = true
+    }
+    else {
+        numeroCartas = prompt("Com quantas cartas quer Jogar? (Valor par, de 4 a 14)");
+        numeroCartas = parseInt(numeroCartas);
     }
 }
 
-//dar as cartas perguntar no prompt
-let darCartas = prompt ("Com quantas cartas quer Jogar?");
-while (darCartas / 2 != 0 && (darCartas >= 4 && darCartas <= 14));{
-    perguntarNovamente (darCartas);
-    darCartas = prompt ("Com quantas cartas quer Jogar?"); 
+//cartas
+let imagensFrente = [
+    `"imagens/bobrossparrot.gif"`,
+    `"imagens/explodyparrot.gif"`,
+    `"imagens/fiestaparrot.gif"`,
+    `"imagens/metalparrot.gif"`,
+    `"imagens/revertitparrot.gif"`,
+    `"imagens/tripletsparrot.gif"`,
+    `"imagens/unicornparrot.gif"`];
+
+let cartas = document.querySelector(".baralho");
+
+//escolher cartas
+let escolhas = [];
+for (let i = 0; i < numeroCartas / 2; i++) {
+    let numeroEscolhido = Math.floor(Math.random() * 7);
+    while(escolhas.includes(numeroEscolhido)){
+       numeroEscolhido = Math.floor(Math.random() * 7);
+    }
+    escolhas.push(numeroEscolhido);
+    escolhas.push(numeroEscolhido);
 }
 
-//girar cartas
-
-const cartas = document.querySelectorAll('.baralho');
-
-function flipCard() {
-  this.classList.toggle('girar');
+//embaralhar
+ function comparador() {
+        return Math.random() - 0.5;
+    }
+    
+function selecionarCarta(cartaSelecionada){
+    cartaSelecionada.classList.add("faceFrente")
 }
 
-cartas.forEach(carta => carta.addEventListener('click', flipCard));
-
-
-
-
-
-
-
-
- //embaralhar
- minhaArray.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
-
-// Esta função pode ficar separada do código acima, onde você preferir
-function comparador() { 
-	return Math.random() - 0.5; 
+escolhas.sort(comparador);
+console.log(escolhas);
+for(let i = 0; i<escolhas.length; i++){
+    console.log(i);
+    console.log(imagensFrente[i]);
+cartas.innerHTML = cartas.innerHTML + `<div onclick="selecionarCarta(this)" class="carta">
+    <img class="frente faceFrente" src=${imagensFrente[escolhas[i]]}>
+    <img class="verso frente" src="imagens/back.png">
+    </div>`;
 }
+
+
+ 
+
+//     imagensFrente.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
+
+//     // Esta função pode ficar separada do código acima, onde você preferir
+    
+
+
+
+
+
+
+
+
+//     let cartas = document.querySelector(".baralho");
+
+//     cartas.forEach(carta => carta.addEventListener('click', virarCarta));
+
+//     //O jogo
+
+//     jogo = document.querySelector(".cartas")
+
+//   
