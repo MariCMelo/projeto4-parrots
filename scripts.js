@@ -1,3 +1,4 @@
+//dar as cartas perguntar no prompt
 let numeroCartas = prompt("Com quantas cartas quer Jogar? (Valor par, de 4 a 14)");
 numeroCartas = parseInt(numeroCartas);
  
@@ -69,19 +70,28 @@ function selecionarCarta(cartaSelecionada){
   }
  
   if (escolha1 !== null && escolha2 !== null) {
-    if (escolha1 !== escolha2) {
+    if(escolha1 !== escolha2) {
         todasCartas = document.getElementsByClassName('carta');
         for(let i=0; i < todasCartas.length; i++) {
-            if(todasCartas[i].className.includes('virar-carta')) {
+            if(todasCartas[i].className.includes('virar-carta') && !todasCartas[i].className.includes('acertou')) {
                 indicesEscolhas.push(i);
             }
         }
         setTimeout(virarCartas, 1000, indicesEscolhas);
       }
  
+    if(escolha1 === escolha2) {
+        todasCartas = document.getElementsByClassName('carta');
+        for(let i=0; i < todasCartas.length; i++) {
+            if(todasCartas[i].className.includes('virar-carta')) {
+                todasCartas[i].classList.add('acertou');
+            }
+        }
+        indicesEscolhas = [];
+    }
+ 
      escolha1 = null;
      escolha2 = null;
-     indicesEscolhas = [];
  
   }
  
@@ -98,4 +108,3 @@ cartas.innerHTML = cartas.innerHTML + `<div class="carta" onclick="selecionarCar
 </div>
     `;
 }
- 
